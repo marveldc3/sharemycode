@@ -1,6 +1,2 @@
 {
-  "build": {
-    "target": "serverless",
-    "useTypeScript": true
-  }
 }
