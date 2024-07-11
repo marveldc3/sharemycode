@@ -1,9 +1,8 @@
 // src/components/CodeSnippetPage.tsx
-
 import React, { useEffect, useState } from 'react'
 import { getCodeSnippet } from '../api/CodeSnippetApi'
 import { CodeSnippet } from '../types/CodeSnippet'
-import { renderSync } from '@svgdotjs/svg.js'
+import svgson from 'svgson'
 
 interface Props {
   match: {
@@ -29,11 +28,25 @@ const CodeSnippetPage: React.FC<Props> = ({ match }) => {
     return <div>Loading...</div>
   }
 
-  const svg = renderSync(`<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30"></svg>`)
-  const text = svg.text(codeSnippet.code)
-  text.font({ size: 20 })
-  text.move(10, 20)
-  const imageData = svg.svg()
+  const svg = svgson({
+    tag: 'svg',
+    attrs: {
+      xmlns: 'http://www.w3.org/2000/svg',
+      width: 100,
+      height: 30,
+    },
+    children: [
+      {
+        tag: 'text',
+        attrs: {
+          x: 10,
+          y: 20,
+          fontSize: 20,
+        },
+        children: [codeSnippet.code],
+      },
+    ],
+  })
 
   return (
     <div>
@@ -46,7 +59,7 @@ const CodeSnippetPage: React.FC<Props> = ({ match }) => {
       </div>
       <div>
         <h2>Vector Image</h2>
-        <div dangerouslySetInnerHTML={{ __html: imageData }} />
+        <div dangerouslySetInnerHTML={{ __html: svg }} />
       </div>
     </div>
   )
