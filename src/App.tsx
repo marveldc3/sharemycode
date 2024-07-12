@@ -23,4 +23,5 @@ const App = () => {
   )
 }
 
-export { App }
+// Ensure that you have a default export in your App.tsx file
+export default App
