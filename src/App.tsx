@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react'
 import './App.css'
-import CodeSnippetForm from './components/CodeSnippetForm'
-import CodeSnippetList from './components/CodeSnippetList'
+import { CodeSnippetForm } from './components/CodeSnippetForm'
+import { CodeSnippetList } from './components/CodeSnippetList'
 import { CodeSnippet } from './types/CodeSnippet'
 
-const App: React.FC = () => {
+const App = () => {
   const [codeSnippets, setCodeSnippets] = useState<CodeSnippet[]>([])
 
   const handleSubmit = (codeSnippet: CodeSnippet) => {
@@ -23,4 +23,4 @@ const App: React.FC = () => {
   )
 }
 
-export default App
+export { App }

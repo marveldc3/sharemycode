@@ -7,7 +7,7 @@ interface Props {
   codeSnippets: CodeSnippet[]
 }
 
-const CodeSnippetList: React.FC<Props> = ({ codeSnippets }) => {
+export function CodeSnippetList({ codeSnippets }: Props) {
   return (
     <ul>
       {codeSnippets.map((codeSnippet) => (
@@ -18,5 +18,3 @@ const CodeSnippetList: React.FC<Props> = ({ codeSnippets }) => {
     </ul>
   )
 }
-
-export default CodeSnippetList

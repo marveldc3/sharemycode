@@ -1,9 +1,9 @@
-// share_my_code/src/index.tsx 
+// src/index.tsx 
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import App from './App.tsx';
+import App from './App'
 import CodeSnippetPage from './components/CodeSnippetPage'
 
 ReactDOM.render(

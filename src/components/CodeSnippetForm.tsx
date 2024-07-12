@@ -8,7 +8,7 @@ interface Props {
   onSubmit: (codeSnippet: CodeSnippet) => void
 }
 
-const CodeSnippetForm: React.FC<Props> = ({ onSubmit }) => {
+export function CodeSnippetForm({ onSubmit }: Props) {
   const [code, setCode] = useState('')
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -34,5 +34,3 @@ const CodeSnippetForm: React.FC<Props> = ({ onSubmit }) => {
     </form>
   )
 }
-
-export default CodeSnippetForm
